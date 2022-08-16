@@ -15,6 +15,8 @@ body {
     background: black;
     font-family: 'Poppins', sans-serif;
     transition: 1s all;
+    overflow: auto;
+    scroll-snap-type: y mandatory;
 }
 
 // Main Loader (Until data showed up)
@@ -93,13 +95,14 @@ body {
     padding: 5% 5%;
     display: flex;
     flex-direction: column;
-    position: relative;
+    // position: relative;
+    scroll-snap-align: start;
 }
 
 .pagination {
-    margin-bottom: 50px;
+    margin: 50px 20px 0 0;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     gap: 10px;
 
@@ -138,9 +141,11 @@ body {
 }
 
 .all-characters {
+    position: relative;
     padding-top: 20px;
     min-height: 100vh;
     display: flex;
+    justify-content: center;
     flex-flow: row wrap;
 
     .one-character {
@@ -206,6 +211,7 @@ body {
     min-height: 500px;
 
     i {
+        cursor: pointer;
         position: absolute;
         top: 5%;
         right: 5%;
@@ -232,7 +238,8 @@ body {
         font-size: 25px;
 
         p {
-            margin: 10px 0;
+            margin-bottom: 10px;
+            padding: 0;
         }
         .title {
             font-size: 35px;
@@ -362,6 +369,14 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
+    .all-characters {
+        .one-character {
+            width: 100px;
+            .character-name {
+                font-size: 10px;
+            }
+        }
+    }
     .main-loader {
         img {
             width: 90%;
@@ -389,14 +404,6 @@ body {
             font-size: 15px;
             .title {
                 font-size: 20px;
-            }
-        }
-    }
-    .all-characters {
-        .one-character {
-            width: 100px;
-            .character-name {
-                font-size: 10px;
             }
         }
     }
