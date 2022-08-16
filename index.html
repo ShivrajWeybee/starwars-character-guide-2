@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars | Charecter Guide</title>
+    <link rel="shortcut icon" href="light-saber.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a19b7777ea.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="main-loader">
+        <img src="Star Wars Logo Wallpapers.png" alt="">
+    </div>
+    <div class="container hidden">
+        <div class="hero">
+            <img src="https://voluble-licorice-54c6bc.netlify.app/assets/img/logo.png" alt="star wars logo">
+            <div class="scroll-down">
+                <i class="fa-solid fa-angles-down"></i>
+            </div>
+            <p class="scroll-txt">Scroll down to<br> meet characters</p>
+        </div>
+        <div class="popup-backdrop hidden"></div>
+        <div class="popup hidden">
+            <div class="wrapper">
+                <div class="loader">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <i class="fa-solid fa-xmark"></i>
+            <div class="popup-img hidden">
+                <img src="https://starwars-visualguide.com/assets/img/characters/8.jpg" alt="" class="pimg">
+            </div>
+            <div class="popup-details hidden">
+                <p class="title">R5-D4</p>
+                <p><span class="popup-label">Birthyear</span> : <span class="birthyear">Unknown</span></p>
+                <p><span class="popup-label">Gender</span> : <span class="gender">Unknown</span></p>
+                <p><span class="popup-label">Species</span> : <span class="species">Unknown</span></p>
+                <p><span class="popup-label">Homeworld</span> : <span class="homeworld">Unknown</span></p>
+                <p><span class="popup-label">Films</span> : <span class="films">Unknown</span></p>
+            </div>
+        </div>
+        <div class="character-wrapper">
+            <div class="pagination">
+                <button class="previous-page disableBTN">
+                    <i class="fa-solid fa-angle-left previous-page"></i>
+                </button>
+                <div class="page-btns">
+                    <select name="page" id="page-dropdown"></select>
+                </div>
+                <button class="next-page">
+                    <i class="fa-solid fa-angle-right next-page"></i>
+                </button>
+            </div>
+            <div class="all-characters"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

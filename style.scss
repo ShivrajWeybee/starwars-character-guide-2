@@ -1,0 +1,412 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+$boxes: 20;
+$durationAll: 1s;
+$duration: - $durationAll / $boxes;
+$color: #ffc500;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: black;
+    font-family: 'Poppins', sans-serif;
+    transition: 1s all;
+}
+
+// Main Loader (Until data showed up)
+.main-loader {
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: 1.2s linear 0s infinite alternate mainLoader;
+    }
+    @keyframes mainLoader {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+}
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    background-color: black;
+
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .scroll-down {
+        cursor: pointer;
+        text-transform: uppercase;
+        text-align: center;
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: 1s ease-in 0s infinite alternate scrollDown;
+        i {
+            color: rgba(245, 245, 245, 0.767);
+            font-size: 30px;
+        }
+    }
+    .scroll-txt {
+        cursor: pointer;
+        color: rgba(245, 245, 245, 0.486);
+        text-align: center;
+        text-transform: uppercase;
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    @keyframes scrollDown {
+        100% {
+            bottom: 11%;
+        }
+    }
+}
+
+.character-wrapper {
+    background-image:url(Noise.jpg);
+    background-color: rgba(0, 0, 0, 0.2);
+    background-blend-mode: overlay;
+    background-size: cover;
+    padding: 5% 5%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.pagination {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    button {
+        border: none;
+        color: whitesmoke;
+        background-color: transparent;
+        padding: 10px 15px;
+        font-size: 20px;
+    }
+    button:hover {
+        background-color: $color;
+        color: black;
+        border-radius: 5px;
+    }
+    .active-page {
+        border-radius: 5px;
+        color: black;
+        background-color: $color;
+    }
+    .disableBTN {
+        color: rgba(128, 128, 128, 0.600);
+    }
+    .disableBTN:hover {
+        background-color: transparent;
+        color: rgba(128, 128, 128, 0.600);
+    }
+    select {
+        text-align: center;
+        width: 60px;
+        color: whitesmoke;
+        font-size: 20px;
+        border: none;
+        background-color: black;
+    }
+}
+
+.all-characters {
+    padding-top: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: row wrap;
+
+    .one-character {
+        margin: 20px 50px;
+        cursor: pointer;
+        border-radius: 10px 10px 0 0;
+        overflow: hidden;
+        flex: 0 1 calc(20% - 100px);
+        // width: 150px;
+        // height: fit-content;
+
+        img {
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .character-name {
+            background-color: whitesmoke;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        &:hover {
+            transform: scale(1.04);
+            transition: 0.14s ease-in;
+
+            img {
+                opacity: 0.8;
+                transition: 0.14s ease-in;
+            }
+        }
+    }
+}
+
+// PopUp Box
+.popup-backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+.popup {
+    color: whitesmoke;
+    background-color: black;
+    border: 1px solid $color;
+    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: flex-start;
+    gap: 40px;
+    z-index: 1000;
+    padding: 40px;
+    min-width: 800px;
+    max-width: 800px;
+    min-height: 500px;
+
+    i {
+        position: absolute;
+        top: 5%;
+        right: 5%;
+        font-size: 25px;
+    }
+
+    i:hover {
+        color: grey;
+        transition: 0.2s ease-in-out;
+    }
+
+    .popup-img {
+        max-width: 300px;
+        min-width: 300px;
+        max-height: 500px;
+        overflow: hidden;
+        object-fit: cover;
+        img {
+            width: 100%;
+        }
+    }
+
+    .popup-details {
+        font-size: 25px;
+
+        p {
+            margin: 10px 0;
+        }
+        .title {
+            font-size: 35px;
+            font-weight: 900;
+            color: $color;
+        }
+    }
+}
+
+// PopUp Box Loader
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 2px;
+}
+.loader {
+    display: flex;
+    transform: translateZ(0);
+    div {
+        height: 5px;
+        flex: 1;
+        background: $color;
+        animation: go #{$durationAll} infinite alternate linear;
+        box-shadow: 0 0 20px $color;
+        
+        @for $i from 1 through $boxes {
+            &:nth-child(#{$i}) {
+                animation-delay: $duration * ($boxes - $i);
+            }
+        }
+    }
+}
+@keyframes go {
+    100% {
+        background: transparent;
+        flex: 10;
+        box-shadow: 0 0 0 transparent;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+@media only screen and (max-width: 1440px) {
+    .hero {
+        img {
+            width: 50%;
+        }
+
+        .scroll-down {
+            i{
+                font-size: 20px;
+            }
+        }
+
+        .scroll-txt {
+            font-size: 10px;
+        }
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .popup {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 20px;
+        min-width: 500px;
+        max-width: 500px;
+        min-height: 400px;
+        i {
+            top: -5%;
+            right: -5%;
+        }
+        .popup-img {
+            max-width: 150px;
+            min-width: 150px;
+            img {
+                width: 100%;
+            }
+        }
+        .popup-details {
+            font-size: 18px;
+            p {
+                margin: 5px 0;
+            }
+            .title {
+                font-size: 25px;
+            }
+        }
+    }
+    .all-characters {
+        gap: 25px;
+        padding: 10px;
+        .one-character {
+            margin: 0px 10px;
+            flex: 0 1 calc(15% - 20px);
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .character-wrapper {
+        padding: 1% 1%;
+    }
+}
+
+@media only screen and (max-width: 812px) {
+    .all-characters {
+        .one-character {
+            // width: 150px;
+            margin: 10px 20px;
+            flex: 0 1 calc(40% - 40px);
+            .character-name {
+                font-size: 25px;
+            }
+        }
+    }
+    .popup {
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .main-loader {
+        img {
+            width: 90%;
+        }
+    }
+    .wrapper {
+        width: 200px;
+    }
+    .popup {
+        min-width: 350px;
+        max-width: 350px;
+        min-height: 400px;
+    }
+}
+
+@media only screen and (max-width: 415px) {
+    .wrapper {
+        width: 100px;
+    }
+    .popup {
+        min-width: 280px;
+        max-width: 280px;
+        min-height: 400px;
+        .popup-details {
+            font-size: 15px;
+            .title {
+                font-size: 20px;
+            }
+        }
+    }
+    .all-characters {
+        .one-character {
+            width: 100px;
+            .character-name {
+                font-size: 10px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .all-characters {
+        .one-character {
+            margin: 10px 10px;
+            flex: 0 1 calc(40% - 20px);
+        }
+    }
+}
