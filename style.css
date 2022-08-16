@@ -113,6 +113,7 @@ body {
   gap: 10px;
 }
 .pagination button {
+  cursor: pointer;
   border: none;
   color: whitesmoke;
   background-color: transparent;
@@ -137,6 +138,7 @@ body {
   color: rgba(128, 128, 128, 0.6);
 }
 .pagination select {
+  cursor: pointer;
   text-align: center;
   width: 60px;
   color: whitesmoke;
@@ -208,6 +210,7 @@ body {
   min-width: 800px;
   max-width: 800px;
   min-height: 500px;
+  transition: 1s ease-in;
 }
 .popup i {
   cursor: pointer;
